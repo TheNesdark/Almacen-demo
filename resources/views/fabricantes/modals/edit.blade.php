@@ -40,12 +40,17 @@
                     <label for="edit_sector" class="block text-sm font-medium text-gray-700 mb-2">
                         Sector *
                     </label>
-                    <input type="text" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" 
-                           id="edit_sector" 
-                           name="sector" 
-                           required
-                           placeholder="Sector del fabricante">
+                    <select id="edit_sector"
+                            name="sector"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                            required>
+                        <option value="">Selecciona un sector</option>
+                        <option value="Automotriz">Automotriz</option>
+                        <option value="Electrónica">Electrónica</option>
+                        <option value="Alimentación">Alimentación</option>
+                        <option value="Textil">Textil</option>
+                        <option value="Otros">Otros</option>
+                    </select>
                 </div>
             </div>
             

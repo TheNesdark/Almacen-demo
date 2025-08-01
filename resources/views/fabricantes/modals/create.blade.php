@@ -42,14 +42,18 @@
                 <div>
                     <label for="create_sector" class="block text-sm font-medium text-gray-700 mb-2">
                         Sector *
-                    </label>
-                    <input type="text" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 @error('sector') border-red-300 @enderror" 
-                           id="create_sector" 
-                           name="sector" 
-                           value="{{ old('sector') }}" 
-                           required
-                           placeholder="Sector del fabricante">
+                   </label>
+                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 @error('sector') border-red-300 @enderror" 
+                            id="create_sector" 
+                            name="sector" 
+                            required>
+                    <option value="">Selecciona un sector</option>
+                        <option value="Automotriz">Automotriz</option>
+                        <option value="Electrónica">Electrónica</option>
+                        <option value="Alimentación">Alimentación</option>
+                        <option value="Textil">Textil</option>
+                        <option value="Otros">Otros</option>
+                    </select>
                     @error('sector')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                     @enderror

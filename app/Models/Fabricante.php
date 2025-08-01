@@ -10,4 +10,9 @@ class Fabricante extends Model
     protected $table = 'fabricantes';
     protected $primaryKey = 'id';
     protected $fillable = ["nombre","sector"];
+
+    public function productos()
+    {
+        return $this->hasMany(Producto::class);
+    }
 }

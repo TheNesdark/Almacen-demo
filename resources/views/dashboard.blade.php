@@ -78,7 +78,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm font-medium text-gray-600">Productos</p>
-                    <p class="text-3xl font-bold text-gray-900 mt-2">0</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-2">{{ App\Models\Producto::count() }}</p>
                 </div>
                 <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,9 +87,12 @@
                 </div>
             </div>
             <div class="mt-4">
-                <span class="inline-flex items-center text-sm font-medium text-gray-400">
-                    Próximamente
-                </span>
+                <a href="{{ route('productos.index') }}" class="inline-flex items-center text-sm font-medium text-yellow-600 hover:text-yellow-700">
+                    Ver todos
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
             </div>
         </div>
 
@@ -133,12 +136,12 @@
                     Gestionar Fabricantes
                 </a>
                 
-                <button class="flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg text-gray-500 cursor-not-allowed" disabled>
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                <a href="{{ route('productos.index') }}" class="flex items-center justify-center px-4 py-3 border border-yellow-300 rounded-lg text-yellow-700 hover:bg-yellow-50 hover:border-yellow-400 transition-colors duration-200 group">
+                    <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                     </svg>
-                    Gestionar Usuarios
-                </button>
+                    Gestionar Productos
+                </a>
                 
                 <button class="flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg text-gray-500 cursor-not-allowed" disabled>
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

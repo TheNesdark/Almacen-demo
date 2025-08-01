@@ -95,11 +95,17 @@
             <div class="fixed inset-0 z-50 hidden" id="sidebarOverlay">
                 <div class="fixed inset-0 bg-gray-900/80"></div>
                 <div class="fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 px-6 pb-4" id="mobileSidebar">
-                    <div class="flex h-16 shrink-0 items-center">
-                        <div class="text-center w-full">
+                    <div class="flex h-16 shrink-0 items-center justify-between">
+                        <div class="text-center flex-1">
                             <h2 class="text-xl font-bold text-white">Dashboard</h2>
                             <p class="text-xs text-gray-400 mt-1">Sistema de Gestión</p>
                         </div>
+                        <button type="button" class="text-gray-400 hover:text-white -m-2 p-2" id="sidebarClose">
+                            <span class="sr-only">Cerrar sidebar</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
                     </div>
                     <nav class="mt-8">
                         <ul role="list" class="-mx-2 space-y-1">
@@ -225,6 +231,11 @@
             overlay.classList.toggle('hidden');
         });
 
+        // Cerrar sidebar con botón X
+        document.getElementById('sidebarClose')?.addEventListener('click', function() {
+            document.getElementById('sidebarOverlay').classList.add('hidden');
+        });
+
         // Cerrar sidebar al hacer clic en overlay
         document.getElementById('sidebarOverlay')?.addEventListener('click', function(e) {
             if (e.target === this) {
@@ -237,6 +248,13 @@
             if (e.key === 'Escape') {
                 document.getElementById('sidebarOverlay')?.classList.add('hidden');
             }
+        });
+
+        // Cerrar sidebar al hacer clic en cualquier enlace del menú móvil
+        document.querySelectorAll('#mobileSidebar a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('sidebarOverlay').classList.add('hidden');
+            });
         });
     </script>
     

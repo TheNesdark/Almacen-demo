@@ -1,0 +1,271 @@
+{
+  "info": {
+    "name": "Almacén API",
+    "description": "API para gestión de fabricantes y productos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api/v1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Fabricantes",
+      "item": [
+        {
+          "name": "Obtener todos los fabricantes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fabricantes",
+              "host": ["{{base_url}}"],
+              "path": ["fabricantes"]
+            }
+          }
+        },
+        {
+          "name": "Obtener fabricante por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fabricantes/1",
+              "host": ["{{base_url}}"],
+              "path": ["fabricantes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear fabricante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Sony\",\n  \"sector\": \"Electrónicos\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/fabricantes",
+              "host": ["{{base_url}}"],
+              "path": ["fabricantes"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar fabricante",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Sony Corporation\",\n  \"sector\": \"Tecnología y Entretenimiento\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/fabricantes/1",
+              "host": ["{{base_url}}"],
+              "path": ["fabricantes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar fabricante",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fabricantes/1",
+              "host": ["{{base_url}}"],
+              "path": ["fabricantes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener productos de un fabricante",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fabricantes/1/productos",
+              "host": ["{{base_url}}"],
+              "path": ["fabricantes", "1", "productos"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Productos",
+      "item": [
+        {
+          "name": "Obtener todos los productos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/productos",
+              "host": ["{{base_url}}"],
+              "path": ["productos"]
+            }
+          }
+        },
+        {
+          "name": "Buscar productos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/productos?search=galaxy&fabricante_id=1",
+              "host": ["{{base_url}}"],
+              "path": ["productos"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "galaxy"
+                },
+                {
+                  "key": "fabricante_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener producto por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/productos/1",
+              "host": ["{{base_url}}"],
+              "path": ["productos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"PlayStation 5\",\n  \"descripcion\": \"Consola de videojuegos de última generación\",\n  \"precio\": 499.99,\n  \"stock\": 25,\n  \"fabricante_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/productos",
+              "host": ["{{base_url}}"],
+              "path": ["productos"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"PlayStation 5 Pro\",\n  \"descripcion\": \"Consola de videojuegos premium\",\n  \"precio\": 599.99,\n  \"stock\": 15,\n  \"fabricante_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/productos/1",
+              "host": ["{{base_url}}"],
+              "path": ["productos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar producto",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/productos/1",
+              "host": ["{{base_url}}"],
+              "path": ["productos", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

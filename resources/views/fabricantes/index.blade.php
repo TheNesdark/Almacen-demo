@@ -143,7 +143,11 @@ document.addEventListener('click', function(e) {
 function editFabricante(id, nombre, sector) {
     document.getElementById('editForm').action = `/fabricantes/${id}`;
     document.getElementById('edit_nombre').value = nombre;
-    document.getElementById('edit_sector').value = sector;
+    
+    // Seleccionar la opción correcta en el select
+    const sectorSelect = document.getElementById('edit_sector');
+    sectorSelect.value = sector;
+    
     openModal('editModal');
 }
 

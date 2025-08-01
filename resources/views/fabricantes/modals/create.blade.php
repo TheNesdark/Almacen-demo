@@ -47,12 +47,12 @@
                             id="create_sector" 
                             name="sector" 
                             required>
-                    <option value="">Selecciona un sector</option>
-                        <option value="Automotriz">Automotriz</option>
-                        <option value="Electrónica">Electrónica</option>
-                        <option value="Alimentación">Alimentación</option>
-                        <option value="Textil">Textil</option>
-                        <option value="Otros">Otros</option>
+                        <option value="">Selecciona un sector</option>
+                        <option value="Automotriz" {{ old('sector') == 'Automotriz' ? 'selected' : '' }}>Automotriz</option>
+                        <option value="Electrónica" {{ old('sector') == 'Electrónica' ? 'selected' : '' }}>Electrónica</option>
+                        <option value="Alimentación" {{ old('sector') == 'Alimentación' ? 'selected' : '' }}>Alimentación</option>
+                        <option value="Textil" {{ old('sector') == 'Textil' ? 'selected' : '' }}>Textil</option>
+                        <option value="Otros" {{ old('sector') == 'Otros' ? 'selected' : '' }}>Otros</option>
                     </select>
                     @error('sector')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>

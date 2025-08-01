@@ -17,7 +17,7 @@ class FabricanteController extends Controller
     {
         $request->validate([
             'nombre' => 'required|string|max:255|unique:fabricantes,nombre',
-            'sector' => 'required|string|max:255'
+            'sector' => 'required|string|in:Automotriz,Electrónica,Alimentación,Textil,Otros'
         ]);
 
         Fabricante::create([
@@ -35,7 +35,7 @@ class FabricanteController extends Controller
         
         $request->validate([
             'nombre' => 'required|string|max:255|unique:fabricantes,nombre,' . $id,
-            'sector' => 'required|string|max:255'
+            'sector' => 'required|string|in:Automotriz,Electrónica,Alimentación,Textil,Otros'
         ]);
 
         $fabricante->update([

@@ -46,7 +46,7 @@
                                 name="fabricante_id" 
                                 required>
                             <option value="">Selecciona un fabricante</option>
-                            @foreach(App\Models\Fabricante::all() as $fabricante)
+                            @foreach($fabricantes as $fabricante)
                                 <option value="{{ $fabricante->id }}">{{ $fabricante->nombre }}</option>
                             @endforeach
                         </select>

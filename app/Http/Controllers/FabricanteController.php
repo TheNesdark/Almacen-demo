@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Fabricante;
+use App\Http\Requests\FabricanteRequest;
 
 class FabricanteController extends Controller
 {
@@ -13,45 +13,26 @@ class FabricanteController extends Controller
         return view('fabricantes.index', compact('fabricantes'));
     }
 
-    public function store(Request $request)
+    public function store(FabricanteRequest $request)
     {
-        $request->validate([
-            'nombre' => 'required|string|max:255|unique:fabricantes,nombre',
-            'sector' => 'required|string|in:Automotriz,Electrónica,Alimentación,Textil,Otros'
-        ]);
-
-        Fabricante::create([
-            'nombre' => $request->nombre,
-            'sector' => $request->sector
-        ]);
-
+        Fabricante::create($request->validated());
+        
         return redirect()->route('fabricantes.index')
             ->with('success', 'Fabricante creado exitosamente.');
     }
 
-    public function update(Request $request, $id)
+    public function update(FabricanteRequest $request, Fabricante $fabricante)
     {
-        $fabricante = Fabricante::findOrFail($id);
+        $fabricante->update($request->validated());
         
-        $request->validate([
-            'nombre' => 'required|string|max:255|unique:fabricantes,nombre,' . $id,
-            'sector' => 'required|string|in:Automotriz,Electrónica,Alimentación,Textil,Otros'
-        ]);
-
-        $fabricante->update([
-            'nombre' => $request->nombre,
-            'sector' => $request->sector
-        ]);
-
         return redirect()->route('fabricantes.index')
             ->with('success', 'Fabricante actualizado exitosamente.');
     }
 
-    public function destroy($id)
+    public function destroy(Fabricante $fabricante)
     {
-        $fabricante = Fabricante::findOrFail($id);
         $fabricante->delete();
-
+        
         return redirect()->route('fabricantes.index')
             ->with('success', 'Fabricante eliminado exitosamente.');
     }

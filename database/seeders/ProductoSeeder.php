@@ -11,11 +11,6 @@ class ProductoSeeder extends Seeder
     public function run(): void
     {
         $fabricantes = Fabricante::all();
-        
-        if ($fabricantes->isEmpty()) {
-            $this->command->info('No hay fabricantes disponibles. Ejecuta FabricanteSeeder primero.');
-            return;
-        }
 
         $productos = [
             [

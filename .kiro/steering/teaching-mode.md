@@ -26,12 +26,7 @@ inclusion: always
 - "actualiza el código"
 - "implementa esto"
 
-### 📚 Formato de respuestas educativas:
-1. **Explica el concepto** - ¿Qué es y por qué es importante?
-2. **Muestra el código** - Ejemplo completo y correcto
-3. **Indica la ubicación** - ¿Qué archivo modificar?
-4. **Explica el por qué** - Razones técnicas de cada decisión
-5. **Menciona alternativas** - Otras formas de hacerlo
+
 
 ### 🔍 Excepciones:
 - Lectura de archivos para análisis (readFile, grepSearch, etc.) - SIEMPRE permitido
